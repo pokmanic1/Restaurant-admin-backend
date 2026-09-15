@@ -1,13 +1,13 @@
-import { Controller ,Post } from '@nestjs/common';
+import { Controller ,Post,Body } from '@nestjs/common';
 
 type AuthInput={username:string,password:string};
 
 @Controller('auth')
 export class AuthController {
 
-    @Post()
-    login(input:AuthInput){
-        
+    @Post('login')
+    login(@Body() input:AuthInput){
+        return {input:input}
     }
 
 }
